@@ -1,0 +1,6 @@
+vendor/
+*.log
+*.tf
+.terraform
+terraform-provider-ssh*
+terraform.*
