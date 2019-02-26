@@ -67,7 +67,7 @@ func dataSourceSSHTunnelRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("local_port", localPort)
 	d.SetId(localPort)
 
-	args := []string{"-v", "-N"}
+	args := []string{"-v", "-N", "-oStrictHostKeyChecking=accept-new"}
 	args = append(args, "-L", fmt.Sprintf("%s:%s:%s", localPort, remoteHost, remotePort))
 	if config.KeyFilePath != "" {
 		args = append(args, "-i", config.KeyFilePath)
